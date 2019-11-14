@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analyzer1", "Analyzer1\Analyzer1\Analyzer1.csproj", "{956D8A98-9550-47D1-851E-8853E7C9510E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainAnalyzer", "Analyzer1\Analyzer1\ChainAnalyzer.csproj", "{956D8A98-9550-47D1-851E-8853E7C9510E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analyzer1.Test", "Analyzer1\Analyzer1.Test\Analyzer1.Test.csproj", "{5698C803-B41B-466A-9CA9-546D4B2E2FC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainAnalyzer.Test", "Analyzer1\Analyzer1.Test\ChainAnalyzer.Test.csproj", "{5698C803-B41B-466A-9CA9-546D4B2E2FC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analyzer1.Vsix", "Analyzer1\Analyzer1.Vsix\Analyzer1.Vsix.csproj", "{9041011E-A04A-47F1-A56F-1ED8071026CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainAnalyzer.Vsix", "Analyzer1\Analyzer1.Vsix\ChainAnalyzer.Vsix.csproj", "{9041011E-A04A-47F1-A56F-1ED8071026CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

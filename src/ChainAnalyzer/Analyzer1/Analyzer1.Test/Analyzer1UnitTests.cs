@@ -4,69 +4,128 @@ using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TestHelper;
-using Analyzer1;
+using ChainAnalyzer;
 
-namespace Analyzer1.Test
+namespace ChainAnalyzer.Test
 {
     [TestClass]
-    public class UnitTest : CodeFixVerifier
+    public class ChainLenghtTest : CodeFixVerifier
     {
+        private const string ChainTooLong = @"
+using System;
+
+namespace TestAnalyzer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var x = new TestObject()
+                .Method1()
+                .Method2()
+                .Method3()
+                .Method4()
+                .NextObject()
+                .NMethod1()
+                .NMethod2()
+                .NMethod3()
+                .NMethod1();
+        }
+    }
+}";
+
+        private const string ChainTooLongNoDeclaration = @"
+using System;
+
+namespace TestAnalyzer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var x = new TestObject();
+
+                x.Method1()
+                .Method2()
+                .Method3()
+                .Method4()
+                .NextObject()
+                .NMethod1()
+                .NMethod2()
+                .NMethod3()
+                .NMethod1();
+        }
+    }
+}";
+        private const string ChainTooLongStatic= @"
+using System;
+
+namespace TestAnalyzer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var x = TestObject.Method1()
+                .Method2()
+                .Method3()
+                .Method4()
+                .NextObject()
+                .NMethod1()
+                .NMethod2()
+                .NMethod3()
+                .NMethod1();
+        }
+    }
+}";
+        private const string ChainProperLength = @"
+using System;
+
+namespace TestAnalyzer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var x = new TestObject()
+                .Method1()
+                .Method2()
+                .Method3()
+                .Method4()
+                .NextObject();
+        }
+    }
+}";
 
         //No diagnostics expected to show up
-        [TestMethod]
-        public void TestMethod1()
+        [DataTestMethod]
+        [DataRow(""),
+    DataRow(ChainProperLength)]
+        public void WhenTestCodeIsValidNoDiagnosticIsTriggered(string testCode)
         {
-            var test = @"";
-
-            VerifyCSharpDiagnostic(test);
+            VerifyCSharpDiagnostic(testCode);
         }
 
         //Diagnostic and CodeFix both triggered and checked for
-        [TestMethod]
-        public void TestMethod2()
+        [DataTestMethod]
+        [DataRow(ChainTooLong, 10,13),
+         DataRow(ChainTooLongNoDeclaration, 0,5),
+         DataRow(ChainTooLongStatic,12,17)]
+        public void WhenDiagnosticIsRaisedFixUpdatesCode(string testCode, int line, int column)
         {
-            var test = @"
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Diagnostics;
 
-    namespace ConsoleApplication1
-    {
-        class TypeName
-        {   
-        }
-    }";
             var expected = new DiagnosticResult
             {
-                Id = "Analyzer1",
-                Message = String.Format("Type name '{0}' contains lowercase letters", "TypeName"),
+                Id = ChainLenghtAnalyzer.DiagnosticId,
+                Message = new LocalizableResourceString(nameof(ChainAnalyzer.Resources.AnalyzerMessageFormat), ChainAnalyzer.Resources.ResourceManager, typeof(ChainAnalyzer.Resources)).ToString(),
                 Severity = DiagnosticSeverity.Warning,
                 Locations =
                     new[] {
-                            new DiagnosticResultLocation("Test0.cs", 11, 15)
+                            new DiagnosticResultLocation("Test0.cs", line, column)
                         }
             };
 
-            VerifyCSharpDiagnostic(test, expected);
-
-            var fixtest = @"
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Diagnostics;
-
-    namespace ConsoleApplication1
-    {
-        class TYPENAME
-        {   
-        }
-    }";
-            VerifyCSharpFix(test, fixtest);
+            VerifyCSharpDiagnostic(testCode, expected);
         }
 
         protected override CodeFixProvider GetCSharpCodeFixProvider()
@@ -76,7 +135,7 @@ namespace Analyzer1.Test
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new Analyzer1Analyzer();
+            return new ChainLenghtAnalyzer();
         }
     }
 }
