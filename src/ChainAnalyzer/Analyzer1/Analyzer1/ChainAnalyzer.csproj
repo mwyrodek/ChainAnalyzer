@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>ChainAnalyzer</Title>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -12,7 +13,7 @@
     <Authors>mwk</Authors>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/mwyrodek/ChainAnalyzer</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/mwyrodek/ChainAnalyzer/blob/master/icon/chain.ico</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/mwyrodek/ChainAnalyzer/master/icon/chain.ico</PackageIconUrl>
     <RepositoryUrl>https://github.com/mwyrodek/ChainAnalyzer</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>Method Chaining Analyzer for test projects</Description>
