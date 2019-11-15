@@ -7,19 +7,23 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>Analyzer1</PackageId>
+    <PackageId>ChainAnalyzer</PackageId>
     <PackageVersion>1.0.0.0</PackageVersion>
     <Authors>mwk</Authors>
-    <PackageLicenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</PackageLicenseUrl>
-    <PackageProjectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</PackageProjectUrl>
-    <PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>
-    <RepositoryUrl>http://REPOSITORY_URL_HERE_OR_DELETE_THIS_LINE</RepositoryUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/mwyrodek/ChainAnalyzer</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/mwyrodek/ChainAnalyzer/blob/master/icon/chain.ico</PackageIconUrl>
+    <RepositoryUrl>https://github.com/mwyrodek/ChainAnalyzer</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>Analyzer1</Description>
-    <PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
+    <Description>Method Chaining Analyzer for test projects</Description>
+    <PackageReleaseNotes>Mvp</PackageReleaseNotes>
     <Copyright>Copyright</Copyright>
-    <PackageTags>Analyzer1, analyzers</PackageTags>
+    <PackageTags>Method Chaining, analyzers</PackageTags>
     <NoPackageAnalysis>true</NoPackageAnalysis>
+    <ApplicationIcon>chain.ico</ApplicationIcon>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryType>Git</RepositoryType>
+    <NeutralLanguage>https://github.com/mwyrodek/ChainAnalyzer</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,6 +40,10 @@
   <ItemGroup>
     <None Update="tools\*.ps1" CopyToOutputDirectory="Always" Pack="true" PackagePath="" />
     <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None Include="..\..\..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
