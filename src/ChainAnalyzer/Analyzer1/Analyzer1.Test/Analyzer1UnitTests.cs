@@ -109,9 +109,9 @@ namespace TestAnalyzer
         //Diagnostic and CodeFix both triggered and checked for
         [DataTestMethod]
         [DataRow(ChainTooLong, 10,13),
-         DataRow(ChainTooLongNoDeclaration, 0,5),
-         DataRow(ChainTooLongStatic,12,17)]
-        public void WhenDiagnosticIsRaisedFixUpdatesCode(string testCode, int line, int column)
+         DataRow(ChainTooLongNoDeclaration, 12, 17),
+         DataRow(ChainTooLongStatic,10,13)]
+        public void WhenDiagnosticIsRaised(string testCode, int line, int column)
         {
 
             var expected = new DiagnosticResult

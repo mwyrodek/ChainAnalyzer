@@ -9,7 +9,7 @@
 
   <PropertyGroup>
     <PackageId>ChainAnalyzer</PackageId>
-    <PackageVersion>1.0.0.0</PackageVersion>
+    <PackageVersion>1.0.0.1</PackageVersion>
     <Authors>mwk</Authors>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/mwyrodek/ChainAnalyzer</PackageProjectUrl>
@@ -24,7 +24,8 @@
     <ApplicationIcon>chain.ico</ApplicationIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryType>Git</RepositoryType>
-    <NeutralLanguage>https://github.com/mwyrodek/ChainAnalyzer</NeutralLanguage>
+    <AssemblyVersion>1.0.1.1</AssemblyVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
