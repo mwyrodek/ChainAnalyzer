@@ -9,7 +9,7 @@
 
   <PropertyGroup>
     <PackageId>ChainAnalyzer</PackageId>
-    <PackageVersion>1.0.0.1</PackageVersion>
+    <PackageVersion>1.0.0.2</PackageVersion>
     <Authors>mwk</Authors>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/mwyrodek/ChainAnalyzer</PackageProjectUrl>
@@ -17,14 +17,14 @@
     <RepositoryUrl>https://github.com/mwyrodek/ChainAnalyzer</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>Method Chaining Analyzer for test projects</Description>
-    <PackageReleaseNotes>Mvp</PackageReleaseNotes>
+    <PackageReleaseNotes>Mvp - fixed argument bug</PackageReleaseNotes>
     <Copyright>Copyright</Copyright>
     <PackageTags>Method Chaining, analyzers</PackageTags>
     <NoPackageAnalysis>true</NoPackageAnalysis>
     <ApplicationIcon>chain.ico</ApplicationIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryType>Git</RepositoryType>
-    <AssemblyVersion>1.0.1.1</AssemblyVersion>
+    <AssemblyVersion>1.0.2.2</AssemblyVersion>
     <Version>1.0.1</Version>
   </PropertyGroup>
 
