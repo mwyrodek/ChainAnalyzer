@@ -41,13 +41,34 @@ namespace ChainAnalyzer
         private void VariableDeclarationChainLength(SyntaxNodeAnalysisContext context)
         {
             var node = context.Node;
-            var syntaxTokens = node.DescendantTokens().Where(t => t.ValueText == ".");
+            //todo parent parent is in
+            var syntaxTokens = node.DescendantTokens().Where(t => t.ValueText == "." && !IsInArgumentTree(t) );
             if (syntaxTokens.Count() <= MaxChainLength)
             {
                 return;
             }
 
             context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation()));
+        }
+
+        private bool IsInArgumentTree(SyntaxToken token)
+        {
+            var node = token.Parent;
+            while (true)
+            {
+                if (node.GetType() == typeof(ArgumentSyntax))
+                {
+                    return true;
+                }
+                else if (node.Parent == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    node = node.Parent;
+                }
+            }
         }
     }
 }

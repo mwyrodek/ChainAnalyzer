@@ -118,11 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AnalyzerDescription" xml:space="preserve">
-    <value> Method Chain is tolong</value>
-    <comment>Chain is to long</comment>
+    <value>Chain is to long</value>
+    <comment>Method Chain is to long</comment>
   </data>
   <data name="AnalyzerMessageFormat" xml:space="preserve">
     <value>Chain Should be no more than 5 elements long.</value>
+    <comment>Method Chain is too long,  Split it into shorter chains.
+Or if it is a Test Automation - consider rewriting the test.</comment>
   </data>
   <data name="AnalyzerTitle" xml:space="preserve">
     <value>Method Chain length</value>

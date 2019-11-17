@@ -97,10 +97,29 @@ namespace TestAnalyzer
     }
 }";
 
+        private const string ChainProperLengthWithArguments = @"
+using System;
+
+namespace TestAnalyzer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var x = new TestObject()
+                .Method5(test.name, test.age)
+                .Method6(test.name)
+                .Method4();
+        }
+    }
+}";
+
         //No diagnostics expected to show up
         [DataTestMethod]
-        [DataRow(""),
-    DataRow(ChainProperLength)]
+        [
+            DataRow(""),
+            DataRow(ChainProperLength),
+            DataRow(ChainProperLengthWithArguments)]
         public void WhenTestCodeIsValidNoDiagnosticIsTriggered(string testCode)
         {
             VerifyCSharpDiagnostic(testCode);
