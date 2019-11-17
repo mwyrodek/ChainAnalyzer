@@ -1,4 +1,4 @@
-# ChainAnalyzer [![NuGet Badge](https://buildstats.info/nuget/ChainAnalyzer)](https://www.nuget.org/packages/ChainAnalyzer) [![Build Status](https://dev.azure.com/maciejwyrodek/ChainAnalyzer/_apis/build/status/ChainAnalyzer?branchName=master)](https://dev.azure.com/maciejwyrodek/ChainAnalyzer/_build/latest?definitionId=3&branchName=master)  [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X7X5144XE)
+# ChainAnalyzer [![NuGet Badge](https://buildstats.info/nuget/ChainAnalyzer)](https://www.nuget.org/packages/ChainAnalyzer) [![Build Status](https://dev.azure.com/maciejwyrodek/ChainAnalyzer/_apis/build/status/mwyrodek.ChainAnalyzer?branchName=master)](https://dev.azure.com/maciejwyrodek/ChainAnalyzer/_build/latest?definitionId=4&branchName=master)  [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X7X5144XE)
 Simple Roslyn analizer to deal with method chaining in Test (especialy selenium page object
 
 
