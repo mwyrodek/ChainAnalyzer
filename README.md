@@ -6,7 +6,8 @@ Project Descirption: https://thebrokentest.com/12-program-challenge-1-done-time-
 
 
 Rules: Based on https://thebrokentest.com/method-chaining-in-test-automation-my-dilemma/
-1. Max Chain length - 5 - to do 
+1. Max Chain length - 5 - Done
+	a. Documentation - under Investigation
 2. Try not to chain between classes  - under investigation
 3. Make routines specifically for Chaining - under investigation
 4. Do only ONE thing in a chaining routine - under investigation
