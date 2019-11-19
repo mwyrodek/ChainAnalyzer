@@ -136,7 +136,7 @@ namespace TestAnalyzer
             var expected = new DiagnosticResult
             {
                 Id = ChainLenghtAnalyzer.DiagnosticId,
-                Message = new LocalizableResourceString(nameof(ChainAnalyzer.Resources.AnalyzerMessageFormat), ChainAnalyzer.Resources.ResourceManager, typeof(ChainAnalyzer.Resources)).ToString(),
+                Message = new LocalizableResourceString(nameof(ChainAnalyzer.Resources.ChainLengthAnalyzerMessageFormat), ChainAnalyzer.Resources.ResourceManager, typeof(ChainAnalyzer.Resources)).ToString(),
                 Severity = DiagnosticSeverity.Warning,
                 Locations =
                     new[] {

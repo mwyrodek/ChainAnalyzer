@@ -117,17 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AnalyzerDescription" xml:space="preserve">
+  <data name="ChainLengthAnalyzerDescription" xml:space="preserve">
     <value>Chain is to long</value>
     <comment>Method Chain is to long</comment>
   </data>
-  <data name="AnalyzerMessageFormat" xml:space="preserve">
+  <data name="ChainLengthAnalyzerMessageFormat" xml:space="preserve">
     <value>Chain Should be no more than 5 elements long.</value>
     <comment>Method Chain is too long,  Split it into shorter chains.
 Or if it is a Test Automation - consider rewriting the test.</comment>
   </data>
-  <data name="AnalyzerTitle" xml:space="preserve">
+  <data name="ChainLengthAnalyzerTitle" xml:space="preserve">
     <value>Method Chain length</value>
     <comment>Chain length</comment>
+  </data>
+  <data name="ChainReturnTypesAnalyzerDescription" xml:space="preserve">
+    <value>The chain is going through too many classes limit</value>
+    <comment>The chain is going through too many classes limit your self only to no more than 2 types.</comment>
+  </data>
+  <data name="ChainReturnTypesAnalyzerMessageFormat" xml:space="preserve">
+    <value>The chain is going through too many classes limit </value>
+    <comment>The chain is going through too many classes limit your self only to no more than 2 types.</comment>
+  </data>
+  <data name="ChainReturnTypesAnalyzerTitle" xml:space="preserve">
+    <value>Too many return types in chain</value>
+    <comment>Too many return types in method chain</comment>
   </data>
 </root>

@@ -64,27 +64,54 @@ namespace ChainAnalyzer {
         /// <summary>
         ///   Looks up a localized string similar to Chain is to long.
         /// </summary>
-        public static string AnalyzerDescription {
+        public static string ChainLengthAnalyzerDescription {
             get {
-                return ResourceManager.GetString("AnalyzerDescription", resourceCulture);
+                return ResourceManager.GetString("ChainLengthAnalyzerDescription", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Chain Should be no more than 5 elements long..
         /// </summary>
-        public static string AnalyzerMessageFormat {
+        public static string ChainLengthAnalyzerMessageFormat {
             get {
-                return ResourceManager.GetString("AnalyzerMessageFormat", resourceCulture);
+                return ResourceManager.GetString("ChainLengthAnalyzerMessageFormat", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Method Chain length.
         /// </summary>
-        public static string AnalyzerTitle {
+        public static string ChainLengthAnalyzerTitle {
             get {
-                return ResourceManager.GetString("AnalyzerTitle", resourceCulture);
+                return ResourceManager.GetString("ChainLengthAnalyzerTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The chain is going through too many classes limit.
+        /// </summary>
+        public static string ChainReturnTypesAnalyzerDescription {
+            get {
+                return ResourceManager.GetString("ChainReturnTypesAnalyzerDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The chain is going through too many classes limit .
+        /// </summary>
+        public static string ChainReturnTypesAnalyzerMessageFormat {
+            get {
+                return ResourceManager.GetString("ChainReturnTypesAnalyzerMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Too many return types in chain.
+        /// </summary>
+        public static string ChainReturnTypesAnalyzerTitle {
+            get {
+                return ResourceManager.GetString("ChainReturnTypesAnalyzerTitle", resourceCulture);
             }
         }
     }
