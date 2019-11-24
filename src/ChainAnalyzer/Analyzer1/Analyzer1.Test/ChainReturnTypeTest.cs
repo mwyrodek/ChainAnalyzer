@@ -11,8 +11,7 @@ namespace ChainAnalyzer.Test
     [TestClass]
     public class ChainReturnTypeTest : CodeFixVerifier
     {
-        private const string classes = @"
-    namespace TestAnalyzer
+        private const string classes = @"namespace TestAnalyzer
 {
     class ManyClassesAtOnce
     {
@@ -66,6 +65,15 @@ REPLACE
             var x = new FirstClass().GoToSecondClass();
         }";
 
+        public const string PassingClassMulitChains = @"
+        public void PassingClass()
+        {
+            var a = new FirstClass().GoToSecondClass();
+            var b = new SecondClass().GoToThirdClass();
+            var c = new SecondClass().thirdClass;
+            var d = a.IntFieldSC;
+        }";
+
         public const string FailingClass = @"
         public void FailingClass()
         {
@@ -76,9 +84,8 @@ REPLACE
         public const string PassingField = @"
         public void PassingField()
         {
-            var x = new FirstClass();
-            var z = x.GoToSecondClass()
-                .IntFieldSC;
+            var x = new SecondClass();
+            var z = x.IntFieldSC;
         }
 ";
 
@@ -118,13 +125,23 @@ REPLACE
         }
 ";
 
+        public const string PassingChainWithParams = @"
+        public void PassingChainWithParams()
+        {
+            var a = new FirstClass()
+                .StayInFirstClass(1)
+                .GoToSecondClass(2);
+        }
+";
+
         public const string FailingMultiChain = @"
         public void FailingMultiChain()
         {
             new FirstClass()
                 .StayInFirstClass()
                 .GoToSecondClass()
-                .StayInSecondClass();
+                .StayInSecondClass()
+                .GoToThirdClass();
         }
 ";
         //No diagnostics expected to show up
@@ -136,12 +153,12 @@ REPLACE
         }
 
         [DataTestMethod]
-        [
-            DataRow(""),
-            DataRow(PassingClass),
+        [DataRow(PassingClass),
             DataRow(PassingProperty),
             DataRow(PassingField),
-            DataRow(PassingMultiChain)]
+            DataRow(PassingMultiChain),
+            DataRow(PassingClassMulitChains),
+            DataRow(PassingChainWithParams)]
         public void WhenTestCodeIsValidNoDiagnosticIsTriggered(string insert)
         {
             var testCode = BuildTestCode(insert);
@@ -151,17 +168,17 @@ REPLACE
 
         //Diagnostic and CodeFix both triggered and checked for
         [DataTestMethod]
-        [DataRow(FailingClass, 10, 13),
-         DataRow(FailingField, 10, 13),
-         DataRow(FailingProperty, 10, 13),
-         DataRow(FailingMultiChain, 10, 13)]
+        [DataRow(FailingClass, 8, 13),
+         DataRow(FailingField, 9, 13),
+         DataRow(FailingProperty, 8, 13),
+         DataRow(FailingMultiChain, 8, 13)]
         public void WhenDiagnosticIsRaised(string insert, int line, int column)
         {
             var testCode = BuildTestCode(insert);
             //todo setup proper messeges
             var expected = new DiagnosticResult
             {
-                Id = ChainLenghtAnalyzer.DiagnosticId,
+                Id = ChainReturnTypeAnalyzer.DiagnosticId,
                 Message = new LocalizableResourceString(nameof(ChainAnalyzer.Resources.ChainReturnTypesAnalyzerMessageFormat), ChainAnalyzer.Resources.ResourceManager, typeof(ChainAnalyzer.Resources)).ToString(),
                 Severity = DiagnosticSeverity.Warning,
                 Locations =
