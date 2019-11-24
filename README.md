@@ -8,9 +8,10 @@ Rules: Based on https://thebrokentest.com/method-chaining-in-test-automation-my-
 
 1. Max Chain length - 5 - Done
 	a. Documentation - Done [link](https://github.com/mwyrodek/ChainAnalyzer/wiki)
-2. Try not to chain between classes  - under investigation
-3. Make routines specifically for Chaining - under investigation
-4. Do only ONE thing in a chaining routine - under investigation
-5. Use it when it improves readability - - under investigation
+2. Try not to chain between classes  - Done
+	a. Auto fix - Backlog
+3. Make routines specifically for Chaining - Descoped - to arbitrary to check from analizer 
+4. Do only ONE thing in a chaining routine - Descoped - to arbitrary to check from analizer 
+5. Use it when it improves readability - Descoped - to arbitrary to check from analizer 
 5. Use it when it makes code simpler - Descoped
 
