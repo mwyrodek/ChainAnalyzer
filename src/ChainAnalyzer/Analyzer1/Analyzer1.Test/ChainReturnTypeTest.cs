@@ -166,7 +166,7 @@ REPLACE
             VerifyCSharpDiagnostic(testCode);
         }
 
-        //Diagnostic and CodeFix both triggered and checked for
+        //Diagnostic triggered and checked for
         [DataTestMethod]
         [DataRow(FailingClass, 8, 13),
          DataRow(FailingField, 9, 13),
@@ -175,7 +175,7 @@ REPLACE
         public void WhenDiagnosticIsRaised(string insert, int line, int column)
         {
             var testCode = BuildTestCode(insert);
-            //todo setup proper messeges
+
             var expected = new DiagnosticResult
             {
                 Id = ChainReturnTypeAnalyzer.DiagnosticId,
@@ -194,12 +194,6 @@ REPLACE
         {
             var test = classes.Replace("REPLACE", insert);
             return test;
-        }
-
-        protected override CodeFixProvider GetCSharpCodeFixProvider()
-        {
-            //return new Analyzer1CodeFixProvider();
-            throw new NotImplementedException();
         }
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()

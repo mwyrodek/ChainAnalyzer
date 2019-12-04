@@ -125,7 +125,7 @@ namespace TestAnalyzer
             VerifyCSharpDiagnostic(testCode);
         }
 
-        //Diagnostic and CodeFix both triggered and checked for
+        //Diagnostic both triggered and checked for
         [DataTestMethod]
         [DataRow(ChainTooLong, 10,13),
          DataRow(ChainTooLongNoDeclaration, 12, 17),
@@ -147,10 +147,6 @@ namespace TestAnalyzer
             VerifyCSharpDiagnostic(testCode, expected);
         }
 
-        protected override CodeFixProvider GetCSharpCodeFixProvider()
-        {
-            return new Analyzer1CodeFixProvider();
-        }
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {

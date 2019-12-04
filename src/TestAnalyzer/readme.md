@@ -1,0 +1,1 @@
+This is fake project used for testing linter
